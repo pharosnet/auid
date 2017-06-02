@@ -7,6 +7,7 @@ import (
 var pool sync.Pool
 var once sync.Once
 
+// new auid from pool
 func NewAuidWithPool() string {
 	id := get()
 	val := id.next()
@@ -14,6 +15,7 @@ func NewAuidWithPool() string {
 	return val
 }
 
+// get auid from pool
 func get() *auid {
 	once.Do(func() {
 		pool = sync.Pool{New:func() interface{} {
@@ -33,6 +35,7 @@ func get() *auid {
 	return id
 }
 
+// set auid into pool
 func put(id *auid)  {
 	pool.Put(id)
 }

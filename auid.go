@@ -13,18 +13,21 @@ func init()  {
 
 var id *auid
 
+// use global auid to gen a id
 func NewAuid() string {
 	val := id.next()
 	return val
 }
 
+// AUID base on UUIDv4 and AtomicNumber
 type auid struct {
 	uuid UUID
 	number *AtomicNumber
 }
 
+// AUID call AtomicNumber.Increase() to get next number
 func (a *auid) next() string {
-	n, err := a.number.Add()
+	n, err := a.number.Increase()
 	if err != nil {
 		a.uuid = NewUUIDV4()
 		a.number.Reset()

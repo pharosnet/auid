@@ -229,7 +229,7 @@ func (u *UUID) UnmarshalText(text []byte) (err error) {
 	for i, byteGroup := range byteGroups {
 		if i > 0 {
 			if t[0] != '-' {
-				err = fmt.Errorf("uuid: invalid string format")
+				err = fmt.Errorf("uuid: invalid string format: %s", text)
 				return
 			}
 			t = t[1:]
