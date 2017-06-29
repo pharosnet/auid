@@ -13,7 +13,9 @@ func init()  {
 
 var id *auid
 
-// use global auid to gen a id
+// use global auid to gen a id.
+// xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxxxxx.
+// len = 48 
 func NewAuid() string {
 	val := id.next()
 	return val
