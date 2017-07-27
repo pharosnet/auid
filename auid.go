@@ -14,7 +14,7 @@ func init()  {
 var id *auid
 
 // use global auid to gen a id.
-// xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxxxxx.
+// xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx-xxxxxxxxxxx.
 // len = 48 
 func NewAuid() string {
 	val := id.next()
@@ -35,5 +35,5 @@ func (a *auid) next() string {
 		a.number.Reset()
 		return a.next()
 	}
-	return fmt.Sprintf("%s:%d", a.uuid.String(), n)
+	return fmt.Sprintf("%s-%d", a.uuid.String(), n)
 }

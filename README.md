@@ -1,6 +1,7 @@
 #### Description
  
 * AUID is a id generator base on UUID for Go, and it itself is completely stable.
+* AUID = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx-xxxxxxxxxxx 
 * Support pool.
 * Support UUIDs.
 * Thread safety.
